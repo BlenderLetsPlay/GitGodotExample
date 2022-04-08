@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://theme/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://theme/normal_box.tres" type="StyleBox" id=3]
+[ext_resource path="res://theme/dark_box.tres" type="StyleBox" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.352941, 0.0784314, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = -2.0
+margin_right = 3.0
+margin_bottom = -2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+margin_left = 296.0
+margin_top = 319.0
+margin_right = 503.0
+margin_bottom = 481.0
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="Center/VBox"]
+margin_right = 207.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 1 )
+text = "0000"
+align = 1
+
+[node name="Button" type="Button" parent="Center/VBox"]
+margin_top = 91.0
+margin_right = 207.0
+margin_bottom = 162.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.352941, 0.0784314, 0.243137, 1 )
+text = "CLICK ME"
+
+[connection signal="pressed" from="Center/VBox/Button" to="." method="_on_Button_pressed"]
